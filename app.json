@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/kicksvault.png",
         "backgroundColor": "#1F2937"
       },
       "package": "com.roycuyones.kicksvault"
