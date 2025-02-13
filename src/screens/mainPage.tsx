@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet } from "react-native";
+import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet, Platform, StatusBar } from "react-native";
 import { createStackNavigator, StackScreenProps } from "@react-navigation/stack";
 
 type RootStackParamList = {
@@ -137,6 +137,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#1F2937",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 50, // Adjusts for Android & iOS
+  },
+  detailsContainer: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "#1F2937",
+    padding: 20,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 50, // Fix for details screen too
   },
   title: {
     fontSize: 24,
@@ -146,7 +154,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#E5E7EB",
     padding: 15,
     marginVertical: 10,
     borderRadius: 10,
@@ -154,10 +162,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   sneakerName: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     marginVertical: 5,
-    color: "#480BB4",
+    color: "#000000",
   },
   blackText: {
     fontSize: 16,
@@ -179,12 +187,6 @@ const styles = StyleSheet.create({
     width: "90%",
     alignItems: "center",
   },
-  detailsContainer: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "#1F2937",
-    padding: 20,
-  },
   roundButton: {
     backgroundColor: "#480BB4",
     paddingVertical: 10,
@@ -192,6 +194,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginTop: 10,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.9,
+    shadowRadius: 4,
+    elevation: 5, // Android shadow
   },
   buttonText: {
     color: "#E5E7EB",
